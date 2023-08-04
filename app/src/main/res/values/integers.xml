@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="number_0">0</integer>
+    <integer name="number_1">1</integer>
+    <integer name="number_1500">1500</integer>
+    <integer name="count_line_1">1</integer>
+    <integer name="count_line_2">2</integer>
+    <integer name="count_line_5">5</integer>
+    <integer name="count_40">40</integer>
+    <integer name="count_chars_small">25</integer>
+    <integer name="count_chars_mid">40</integer>
+    <integer name="count_chars_big">250</integer>
+</resources>
