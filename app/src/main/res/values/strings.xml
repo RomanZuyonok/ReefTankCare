@@ -34,9 +34,15 @@
     <string name="ppm">ppm</string>
     <string name="foundat_element">Foundation elements</string>
     <string name="salf">Salinity</string>
+    <string name="salt_ppt">ppt</string>
+    <string name="count_ppm">ppm</string>
     <string name="alg_ctrl">Algae control</string>
     <string name="save_btn">Save</string>
     <string name="change_water_btm">Change water</string>
     <string name="test_water_btm">Test water</string>
     <string name="measure_btn">Measure</string>
+    <string name="date_measurement">Date measurement</string>
+    <string name="measurement">Measurement</string>
+    <string name="count_dkh">dKh</string>
+    <string name="count_mgl">mg/L</string>
 </resources>

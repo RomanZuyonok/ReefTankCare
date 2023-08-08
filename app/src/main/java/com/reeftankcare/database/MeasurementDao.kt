@@ -1,17 +1,19 @@
 package com.reeftankcare.database
 
-import androidx.room.Dao
-import androidx.room.Query
+import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 import java.util.*
 
 @Dao
 interface MeasurementDao {
-    /*  @Query("SELECT * FROM measurement")
-      fun getMeasurements(): Flow<List<Measurement>>*/
-
     @Query("SELECT * FROM measurement")
-    suspend fun getMeasurements(): List<Measurement>
-
+    fun getMeasurements(): Flow<List<Measurement>>
     @Query("SELECT * FROM measurement WHERE id=(:id)")
     suspend fun getMeasurement(id: UUID): Measurement
+    @Insert
+    suspend fun addMeasurement(measurement: Measurement)
+    @Update
+    suspend fun updateMeasurement(measurement: Measurement)
+    @Delete
+    suspend fun deleteMeasurement(measurement: Measurement)
 }

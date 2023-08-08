@@ -22,4 +22,7 @@
     <dimen name="dp_220">220dp</dimen>
     <dimen name="dp_300">300dp</dimen>
     <dimen name="sp_12">12sp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="dp_44">44dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
 </resources>

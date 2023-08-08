@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="date_measurement">Date measurement</string>
+    <string name="measurement">Measurement</string>
+    <string name="count_dkh">dKh</string>
+    <string name="count_mgl">mg/L</string>
+</resources>
