@@ -32,8 +32,8 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
-        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_36"
         android:text="@string/meas_temp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_date_text_view" />
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_36"
         app:layout_constraintStart_toEndOf="@id/title_temperature_text_view"
         app:layout_constraintTop_toBottomOf="@+id/title_date_text_view"
         tools:text="25.2" />
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_26"
-        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_36"
         android:text="@string/number_c"
         app:layout_constraintStart_toEndOf="@id/measure_temperature_text_view"
         app:layout_constraintTop_toBottomOf="@+id/title_date_text_view" />
@@ -65,7 +65,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_60"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/salf"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_36"
         android:layout_marginBottom="@dimen/dp_10"
         android:gravity="center_horizontal"
         android:text="@string/foundat_element"
@@ -112,7 +112,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_60"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/meas_kh"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +145,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_60"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/meas_ca"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +178,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_60"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/meas_mg"
         app:layout_constraintStart_toStartOf="parent"
@@ -211,7 +211,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_36"
         android:layout_marginBottom="@dimen/dp_10"
         android:gravity="center_horizontal"
         android:text="@string/alg_ctrl"
@@ -226,7 +226,7 @@
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_60"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/meas_no3"
         app:layout_constraintStart_toStartOf="parent"
@@ -253,17 +253,50 @@
         android:text="@string/count_mgl"
         app:layout_constraintStart_toEndOf="@id/measure_no3_text_view"
         app:layout_constraintTop_toBottomOf="@+id/algcntl_text_view" />
+    <!--n-no3-->
+    <TextView
+        android:id="@+id/title_n_no3_text_view"
+        style="@style/TextStyle.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_76"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/meas_n_no3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_no3_text_view" />
+
+    <TextView
+        android:id="@+id/measure_n_no3_text_view"
+        style="@style/TextStyle.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintStart_toEndOf="@id/title_n_no3_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/title_no3_text_view"
+        tools:text="0.25" />
+
+    <TextView
+        android:id="@+id/count_n_no3_text_view"
+        style="@style/TextStyle.P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/count_mgl"
+        app:layout_constraintStart_toEndOf="@id/measure_n_no3_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/title_no3_text_view" />
     <!--po4-->
     <TextView
         android:id="@+id/title_po4_text_view"
         style="@style/TextStyle.H3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_48"
+        android:layout_marginStart="@dimen/dp_60"
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/meas_po4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_no3_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/title_n_no3_text_view" />
 
     <TextView
         android:id="@+id/measure_po4_text_view"
@@ -273,7 +306,7 @@
         android:layout_marginStart="@dimen/dp_76"
         android:layout_marginTop="@dimen/dp_16"
         app:layout_constraintStart_toEndOf="@id/title_po4_text_view"
-        app:layout_constraintTop_toBottomOf="@id/title_no3_text_view"
+        app:layout_constraintTop_toBottomOf="@id/title_n_no3_text_view"
         tools:text="0.02" />
 
     <TextView
@@ -285,5 +318,56 @@
         android:layout_marginTop="@dimen/dp_16"
         android:text="@string/count_mgl"
         app:layout_constraintStart_toEndOf="@id/measure_po4_text_view"
-        app:layout_constraintTop_toBottomOf="@id/title_no3_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/title_n_no3_text_view" />
+    <!--p-po4-->
+    <TextView
+        android:id="@+id/title_p_po4_text_view"
+        style="@style/TextStyle.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_76"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/meas_p_po4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_po4_text_view" />
+
+    <TextView
+        android:id="@+id/measure_p_po4_text_view"
+        style="@style/TextStyle.H3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintStart_toEndOf="@id/title_p_po4_text_view"
+        app:layout_constraintTop_toBottomOf="@id/title_po4_text_view"
+        tools:text="0.002" />
+
+    <TextView
+        android:id="@+id/count_p_po4_text_view"
+        style="@style/TextStyle.P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/count_mgl"
+        app:layout_constraintStart_toEndOf="@id/measure_p_po4_text_view"
+        app:layout_constraintTop_toBottomOf="@id/title_po4_text_view" />
+
+    <Button
+        android:id="@+id/button_back_home"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:background="@drawable/shape_btn"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingEnd="@dimen/dp_36"
+        android:text="@string/back_btn"
+        app:icon="@drawable/baseline_arrow_back_24"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/measure_p_po4_text_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@ interface MeasurementDao {
     @Query("SELECT * FROM measurement")
     fun getMeasurements(): Flow<List<Measurement>>
     @Query("SELECT * FROM measurement WHERE id=(:id)")
-    suspend fun getMeasurement(id: UUID): Measurement
+    suspend fun getMeasurement(id: Long): Measurement
     @Insert
     suspend fun addMeasurement(measurement: Measurement)
     @Update

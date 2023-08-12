@@ -1,67 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/change_water_button"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/newMeasurementButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_4"
-            android:text="@string/change_water_btm"
-            android:textAllCaps="false"
-            android:textSize="@dimen/sp_12"
-            app:icon="@drawable/baseline_add_alarm_24"
-            app:layout_constraintEnd_toStartOf="@id/test_water_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <Button
-            android:id="@+id/test_water_button"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_4"
-            android:text="@string/test_water_btm"
-            android:textAllCaps="false"
-            android:textSize="@dimen/sp_12"
-            app:icon="@drawable/baseline_add_alarm_24"
-            app:layout_constraintEnd_toStartOf="@id/new_measure_button"
-            app:layout_constraintStart_toEndOf="@id/change_water_button"
-            app:layout_constraintTop_toTopOf="parent"
-           />
-
-        <Button
-            android:id="@+id/new_measure_button"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_4"
-            android:text="@string/measure_btn"
-            android:textAllCaps="false"
-            android:textSize="@dimen/sp_12"
-            app:icon="@drawable/baseline_add_circle_24"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:alpha="0.6"
+            android:clickable="true"
+            android:contentDescription="@string/measure_btn"
+            app:backgroundTint="@color/sky_blue"
+            app:layout_constraintBottom_toTopOf="@id/changeWaterButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/test_water_button"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:srcCompat="@drawable/ic_add_btn"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/changeWaterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:alpha="0.6"
+            android:clickable="true"
+            android:contentDescription="@string/change_water_btm"
+            app:backgroundTint="@color/sky_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/measure_recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_change_btn"
+            tools:ignore="ContentDescription" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/measure_recycler_view"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="@dimen/dp_0"
-            android:layout_marginTop="@dimen/dp_6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/change_water_button" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/empty_RV_text_view"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_measurements"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

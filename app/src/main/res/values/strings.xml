@@ -45,4 +45,8 @@
     <string name="measurement">Measurement</string>
     <string name="count_dkh">dKh</string>
     <string name="count_mgl">mg/L</string>
+    <string name="no_measurements">no measurements</string>
+    <string name="meas_p_po4">P-PO4</string>
+    <string name="meas_n_no3">N-NO3</string>
+    <string name="back_btn">Back</string>
 </resources>

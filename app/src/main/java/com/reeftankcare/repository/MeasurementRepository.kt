@@ -6,7 +6,6 @@ import com.reeftankcare.database.Measurement
 import com.reeftankcare.database.MeasurementDataBase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import java.util.*
@@ -26,7 +25,7 @@ private val coroutineScope: CoroutineScope = GlobalScope) {
 
     fun getMeasurement(): Flow<List<Measurement>> = database.measurementDao().getMeasurements()
 
-    suspend fun getMeasurement(id: UUID): Measurement = database.measurementDao().getMeasurement(id)
+    suspend fun getMeasurement(id: Long): Measurement = database.measurementDao().getMeasurement(id)
 
     suspend fun addMeasurement(measurement: Measurement){
         database.measurementDao()
