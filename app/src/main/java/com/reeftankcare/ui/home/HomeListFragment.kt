@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.reeftankcare.R
 import com.reeftankcare.databinding.FragmentHomeBinding
+import com.reeftankcare.ui.measurement.MeasurementFragment
 import kotlinx.coroutines.launch
 
 class HomeListFragment : Fragment() {
@@ -30,13 +33,46 @@ class HomeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.swiperRefreshLayout.setColorSchemeResources(
+            android.R.color.holo_blue_bright,
+            android.R.color.holo_green_light,
+            android.R.color.holo_orange_light,
+            android.R.color.holo_red_light
+        )
+        binding.swiperRefreshLayout.setOnRefreshListener {
+            if (!binding.swiperRefreshLayout.isRefreshing) {
+                homeListViewModel.updateData()
+                binding.swiperRefreshLayout.isRefreshing = true
+            } else {
+                Toast.makeText(requireContext(), "Please wait loading...", Toast.LENGTH_LONG).show()
+                binding.swiperRefreshLayout.isRefreshing = false
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 homeListViewModel.measurements.collect { measurements ->
                     binding.measureRecyclerView.adapter =
-                    HomeListAdapter(measurements)
+                        HomeListAdapter(measurements)
+                    if (measurements.isNotEmpty()) {
+                        binding.emptyRVTextView.visibility = View.GONE
+                    }
                 }
             }
+        }
+
+        //binding.measureRecyclerView.setOnClickListener()
+
+        binding.newMeasurementButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, MeasurementFragment()).addToBackStack("Home")
+                .commit()
+
+        }
+        binding.changeWaterButton.setOnClickListener {
+            /*parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, WaterChangeFragment()).addToBackStack("Home")
+                .commit()*/
         }
     }
 }
