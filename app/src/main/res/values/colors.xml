@@ -8,4 +8,10 @@
     <color name="gray_text_p">#FF818181</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <array name="swiperRefreshColors">
+        <item>#FF64B5F6</item>
+        <item>#FF0386F4</item>
+        <item>#FF6964FF</item>
+        <item>#FF0509E8</item>
+    </array>
 </resources>

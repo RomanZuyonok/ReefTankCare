@@ -31,6 +31,10 @@ class HomeListAdapter(
         holder.apply {
             binding.measerItemTextView.text = measurement.id.toString()
             binding.dateItemTextView.text = measurement.date.toString()
+            binding.caNumberItemTextView.text = measurement.calcium.toString()
+            binding.mgNumberItemTextView.text = measurement.magnesium.toString()
+            binding.khNumberItemTextView.text = measurement.kh.toString()
+            binding.temperNumberItemTextView.text = measurement.temperature.toString()
         }
     }
 

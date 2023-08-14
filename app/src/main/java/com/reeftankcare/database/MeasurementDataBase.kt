@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.reeftankcare.utilits.MeasurementTypeConverters
 
-    @Database(entities = [Measurement::class], version = 1)
+    @Database(entities = [Measurement::class], version = 1, exportSchema = false)
     @TypeConverters(MeasurementTypeConverters::class)
     abstract class MeasurementDataBase : RoomDatabase(){
         abstract fun measurementDao() : MeasurementDao

@@ -6,11 +6,11 @@ import java.util.*
 
 @Dao
 interface MeasurementDao {
-    @Query("SELECT * FROM measurement")
+    @Query("SELECT * FROM Measurements")
     fun getMeasurements(): Flow<List<Measurement>>
-    @Query("SELECT * FROM measurement WHERE id=(:id)")
+    @Query("SELECT * FROM Measurements WHERE id=(:id)")
     suspend fun getMeasurement(id: Long): Measurement
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addMeasurement(measurement: Measurement)
     @Update
     suspend fun updateMeasurement(measurement: Measurement)

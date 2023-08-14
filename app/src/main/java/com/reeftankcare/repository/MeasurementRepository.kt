@@ -27,9 +27,10 @@ private val coroutineScope: CoroutineScope = GlobalScope) {
 
     suspend fun getMeasurement(id: Long): Measurement = database.measurementDao().getMeasurement(id)
 
-    suspend fun addMeasurement(measurement: Measurement){
+    suspend fun addMeasurement(measurement: Measurement) : Boolean{
         database.measurementDao()
             .addMeasurement(measurement)
+        return true
     }
 
     fun updateMeasurement(measurement: Measurement){

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.kapt'
+    id 'kotlin-parcelize'
     id 'com.google.gms.google-services'
 }
 
@@ -65,5 +66,16 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.5.2'
     // RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.3.1'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation 'me.relex:circleindicator:2.1.6'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
+
+
+}
+kapt {
+    correctErrorTypes true
 }
