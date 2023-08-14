@@ -53,4 +53,10 @@
     <string name="err_length">max 6 characters</string>
     <string name="err_input_integer">Should only be a numeric value!!!</string>
     <string name="err_input_double">Should only be a numeric value with a comma!!!</string>
+    <string name="skip_btn">Skip</string>
+    <string name="step_one">Hello user! \n I\'m glad you chose this app!</string>
+    <string name="step_two">This application is designed to save and store \n your measurements of water parameters in a marine aquarium.\n The data is stored on your device and always with you!!! \n on awesome projects</string>
+    <string name="step_three">Enjoy using! \n Happy reefing!</string>
+    <string name="reading_info">Reading info</string>
+    <string name="info">Info</string>
 </resources>

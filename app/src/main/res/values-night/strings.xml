@@ -7,4 +7,6 @@
     <string name="meas_p_po4">P-PO4</string>
     <string name="meas_n_no3">N-NO3</string>
     <string name="back_btn">Back</string>
+    <string name="skip_btn">skip</string>
+    <string name="reading_info">Reading info</string>
 </resources>
