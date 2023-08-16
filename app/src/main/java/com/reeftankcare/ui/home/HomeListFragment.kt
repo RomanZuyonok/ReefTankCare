@@ -18,7 +18,10 @@ import kotlinx.coroutines.launch
 
 class HomeListFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private var bindingOne: FragmentHomeBinding? = null
+    private val binding
+        get() = checkNotNull(bindingOne) {}
+
     private val homeListViewModel: HomeListViewModel by viewModels()
 
     override fun onCreateView(
@@ -26,7 +29,7 @@ class HomeListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        bindingOne = FragmentHomeBinding.inflate(inflater, container, false)
         binding.measureRecyclerView.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
@@ -44,7 +47,11 @@ class HomeListFragment : Fragment() {
                 homeListViewModel.updateData()
                 binding.swiperRefreshLayout.isRefreshing = true
             } else {
-                Toast.makeText(requireContext(), "Please wait loading...", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Please wait loading...",
+                    Toast.LENGTH_LONG
+                ).show()
                 binding.swiperRefreshLayout.isRefreshing = false
             }
         }
@@ -61,7 +68,8 @@ class HomeListFragment : Fragment() {
             }
         }
 
-        //binding.measureRecyclerView.setOnClickListener()
+        /*binding.measureRecyclerView.addOnItemTouchListener(View.OnClickListener(){
+        })*/
 
         binding.newMeasurementButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -74,5 +82,10 @@ class HomeListFragment : Fragment() {
                 .replace(R.id.fragment_container, WaterChangeFragment()).addToBackStack("Home")
                 .commit()*/
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingOne = null
     }
 }
