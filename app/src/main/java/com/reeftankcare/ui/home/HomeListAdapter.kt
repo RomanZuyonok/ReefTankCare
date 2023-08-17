@@ -3,7 +3,7 @@ package com.reeftankcare.ui.home
 import android.icu.text.DateFormat
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.recyclerview.widget.RecyclerView
 import com.reeftankcare.database.Measurement
 import com.reeftankcare.databinding.ItemMeasurementBinding
@@ -11,7 +11,10 @@ import com.reeftankcare.databinding.ItemMeasurementBinding
 class HomeHolder(
     private val binding: ItemMeasurementBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(measurement: Measurement) {
+    fun bind(
+        measurement: Measurement,
+        onMeasureClicked: (measureID: Long) -> Unit
+    ) {
         binding.measerItemTextView.text = measurement.id.toString()
         binding.dateItemTextView.text = DateFormat.getDateInstance().format(measurement.date)
         binding.caNumberItemTextView.text = measurement.calcium.toString()
@@ -20,18 +23,14 @@ class HomeHolder(
         binding.temperNumberItemTextView.text = measurement.temperature.toString()
 
         binding.root.setOnClickListener {
-            Toast.makeText(
-                binding.root.context,
-                "${measurement.id} clicked!",
-                Toast.LENGTH_LONG
-            )
-                .show()
+           onMeasureClicked(measurement.id)
         }
     }
 }
 
 class HomeListAdapter(
-    private val measurements: List<Measurement>
+    private val measurements: List<Measurement>,
+    private val onMeasureClicked: (measureID: Long ) -> Unit
 ) : RecyclerView.Adapter<HomeHolder>() {
 
     override fun onCreateViewHolder(
@@ -48,7 +47,7 @@ class HomeListAdapter(
         position: Int
     ) {
         val measurement = measurements[position]
-        holder.bind(measurement)
+        holder.bind(measurement, onMeasureClicked)
     }
 
     override fun getItemCount() = measurements.size
