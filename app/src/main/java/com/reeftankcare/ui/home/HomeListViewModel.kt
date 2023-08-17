@@ -11,37 +11,38 @@ import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class HomeListViewModel : ViewModel() {
 
-    private val measurementRepository = MeasurementRepository.get()
-
-    private var jobLoadMeasure: Job? = null
-
     //var hideProgress: (() -> Unit)? = null
 
-    private val progressStatus = MutableLiveData<Unit>()
+    private val measurementRepository = MeasurementRepository.get()
 
-    private val measurements1: MutableStateFlow<List<Measurement>> =
+   /* private var jobLoadMeasure: Job? = null
+
+    private val progressStatus = MutableLiveData<Unit>()
+*/
+    private val _measurements: MutableStateFlow<List<Measurement>> =
         MutableStateFlow(emptyList())
     val measurements: StateFlow<List<Measurement>>
-        get() = measurements1.asStateFlow()
+        get() = _measurements.asStateFlow()
 
     init {
         viewModelScope.launch {
             measurementRepository.getMeasurement().collect {
-                measurements1.value = it
+                _measurements.value = it
             }
         }
     }
-    fun updateData() {
+  /*  fun updateData() {
         jobLoadMeasure?.cancelChildren()
         jobLoadMeasure = viewModelScope.launch(Dispatchers.IO) {
                     measurementRepository.getMeasurement().collect {
-                measurements1.value = it
+                _measurements.value = it
             }
             progressStatus.postValue(Unit)
         }
-    }
+    }*/
 }

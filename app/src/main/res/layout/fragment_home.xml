@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/swiperRefreshLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +8,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:focusable="true"
+            android:clickable="true">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/newMeasurementButton"
@@ -68,4 +66,3 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

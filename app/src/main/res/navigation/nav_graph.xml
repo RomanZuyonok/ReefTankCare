@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/homeListFragment">
+
+    <fragment
+        android:id="@+id/homeListFragment"
+        android:name="com.reeftankcare.ui.home.HomeListFragment"
+        android:label="HomeListFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/show_measurement_detail"
+            app:destination="@id/measurementDetailsFragment" />
+        <action
+            android:id="@+id/action_homeListFragment_to_measurementFragment"
+            app:destination="@id/measurementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/measurementDetailsFragment"
+        android:name="com.reeftankcare.ui.measurement_detail.MeasurementDetailsFragment"
+        android:label="MeasurementDetailsFragment"
+        tools:layout="@layout/fragment_measure_details">
+        <argument
+            android:name="measureID"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_measurementDetailsFragment_to_homeListFragment"
+            app:destination="@id/homeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/measurementFragment"
+        android:name="com.reeftankcare.ui.measurement.MeasurementFragment"
+        android:label="MeasurementFragment"
+        tools:layout="@layout/fragment_measurement">
+        <action
+            android:id="@+id/action_measurementFragment_to_homeListFragment"
+            app:destination="@id/homeListFragment" />
+    </fragment>
+</navigation>
