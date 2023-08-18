@@ -1,23 +1,23 @@
 package com.reeftankcare.repository
 
-import com.reeftankcare.api.FlickrApi
+import com.reeftankcare.api.PhotoApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 class PhotoRepository {
 
-    private val flickrApi: FlickrApi? = null
+    private val photoApi: PhotoApi? = null
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("api://flickr.com")
+            .baseUrl("https://random-d.uk/api/v2")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
-        // val flickrApi: FlickrApi = retrofit.create<FlickrApi>()
+        // val photoApi: PhotoApi = retrofit.create<PhotoApi>()
     }
 
- //   suspend fun fetchPhotos(): List<GalleryItem> = flickrApi?.fetchPhoto().photos.galleryItems
+ //   suspend fun fetchPhotos(): List<GalleryItem> = photoApi?.fetchPhoto().photos.galleryItems
 
 }

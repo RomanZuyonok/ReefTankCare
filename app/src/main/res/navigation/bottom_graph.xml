@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_graph"
+    app:startDestination="@id/nav_graph">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.reeftankcare.ui.home.HomeListFragment"
+        android:label="HomeListFragment"
+        tools:layout="@layout/fragment_home">
+    </fragment>
+
+    <fragment
+        android:id="@+id/photo"
+        android:name="com.reeftankcare.ui.photo_base.PhotoBaseFragment"
+        android:label="PhotoBaseFragment"
+        tools:layout="@layout/fragment_photo_base">
+    </fragment>
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.reeftankcare.ui.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" >
+    </fragment>
+
+    <include app:graph="@navigation/nav_graph" />
+</navigation>
