@@ -59,4 +59,8 @@
     <string name="step_three">Enjoy using! \n Happy reefing!</string>
     <string name="reading_info">Reading info</string>
     <string name="info">Info</string>
+    <string name="home_menu_bottom">Home</string>
+    <string name="pictures_menu_bottom">Pictures</string>
+    <string name="profile_menu_bottom">Profile</string>
+    <string name="profile_text">Profile</string>
 </resources>
