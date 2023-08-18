@@ -14,7 +14,7 @@
             android:id="@+id/show_measurement_detail"
             app:destination="@id/measurementDetailsFragment" />
         <action
-            android:id="@+id/action_homeListFragment_to_measurementFragment"
+            android:id="@+id/add_new_measure"
             app:destination="@id/measurementFragment" />
     </fragment>
     <fragment
@@ -26,7 +26,7 @@
             android:name="measureID"
             app:argType="long" />
         <action
-            android:id="@+id/action_measurementDetailsFragment_to_homeListFragment"
+            android:id="@+id/back_to_home"
             app:destination="@id/homeListFragment" />
     </fragment>
     <fragment
@@ -39,3 +39,4 @@
             app:destination="@id/homeListFragment" />
     </fragment>
 </navigation>
+

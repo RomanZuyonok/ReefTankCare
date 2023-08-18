@@ -74,10 +74,11 @@ class HomeListFragment : Fragment() {
         }
 
         binding.newMeasurementButton.setOnClickListener {
-              parentFragmentManager.beginTransaction()
+              /*parentFragmentManager.beginTransaction()
                 .addToBackStack("HomeListFragment")
                 .replace(R.id.fragment_container, MeasurementFragment())
-                .commit()
+                .commit()*/
+            findNavController().navigate(HomeListFragmentDirections.addNewMeasure())
         }
         binding.changeWaterButton.setOnClickListener {
             /*parentFragmentManager.beginTransaction()

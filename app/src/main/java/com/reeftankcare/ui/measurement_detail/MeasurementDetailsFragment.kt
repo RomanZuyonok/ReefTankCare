@@ -6,17 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.reeftankcare.R
 import com.reeftankcare.database.Measurement
 import com.reeftankcare.databinding.FragmentMeasureDetailsBinding
-import com.reeftankcare.ui.home.HomeListFragment
-import com.reeftankcare.ui.measurement.MeasurementFragment
 import kotlinx.coroutines.launch
 
 class MeasurementDetailsFragment : Fragment() {
@@ -57,9 +54,8 @@ class MeasurementDetailsFragment : Fragment() {
         }
 
         binding.buttonBackHome.setOnClickListener{
-            parentFragmentManager.beginTransaction()
-                .addToBackStack("MeasurementDetailFragment")
-                .replace(R.id.fragment_container, HomeListFragment()).commit()
+          findNavController().navigate(MeasurementDetailsFragmentDirections.backToHome())
+
         }
     }
 
