@@ -15,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.reeftankcare.database.Measurement
 import com.reeftankcare.databinding.FragmentMeasureDetailsBinding
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 class MeasurementDetailsFragment : Fragment() {
 
@@ -47,7 +48,6 @@ class MeasurementDetailsFragment : Fragment() {
                 measurementDetailsViewModel.measurements.collect { measurement ->
                     measurement?.let {
                         bindDetail(it)
-
                     }
                 }
             }
@@ -55,7 +55,6 @@ class MeasurementDetailsFragment : Fragment() {
 
         binding.buttonBackHome.setOnClickListener{
           findNavController().navigate(MeasurementDetailsFragmentDirections.backToHome())
-
         }
     }
 
@@ -74,15 +73,15 @@ class MeasurementDetailsFragment : Fragment() {
             measureMgTextView.text = measurement.magnesium.toString()
             measureNo3TextView.text = measurement.no3.toString()
             measureNNo3TextView.text = if (measurement.no3 > 0.0) {
-                (measurement.no3 * 3.2).toString()
+                (((measurement.no3 / 3.2)* 100.0).roundToInt() / 100.0).toString()
             } else {
-                "0"
+                "0.0"
             }
             measurePo4TextView.text = measurement.po4.toString()
             measurePPo4TextView.text = if (measurement.po4 > 0.0) {
-                (measurement.po4 * 4.1).toString()
+                (((measurement.po4 / 4.1)* 100.0).roundToInt() / 100.0).toString()
             } else {
-                "0"
+                "0.0"
             }
         }
     }
@@ -97,15 +96,15 @@ class MeasurementDetailsFragment : Fragment() {
             measureMgTextView.text = measurement.magnesium.toString()
             measureNo3TextView.text = measurement.no3.toString()
             measureNNo3TextView.text = if (measurement.no3 > 0.0) {
-                (measurement.no3 / 3.2).toString()
+                (((measurement.no3 / 3.2)* 100.0).roundToInt() / 100.0).toString()
             } else {
-                "0"
+                "0.0"
             }
             measurePo4TextView.text = measurement.po4.toString()
             measurePPo4TextView.text = if (measurement.po4 > 0.0) {
-                (measurement.po4 / 4.1).toString()
+                (((measurement.po4 / 4.1)* 100.0).roundToInt() / 100.0).toString()
             } else {
-                "0"
+                "0.0"
             }
         }
     }
