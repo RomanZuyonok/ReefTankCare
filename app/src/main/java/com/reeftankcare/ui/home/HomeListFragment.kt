@@ -74,16 +74,18 @@ class HomeListFragment : Fragment() {
         }
 
         binding.newMeasurementButton.setOnClickListener {
-              /*parentFragmentManager.beginTransaction()
-                .addToBackStack("HomeListFragment")
-                .replace(R.id.fragment_container, MeasurementFragment())
-                .commit()*/
-            findNavController().navigate(HomeListFragmentDirections.addNewMeasure())
+             findNavController().navigate(HomeListFragmentDirections.addNewMeasure())
         }
         binding.changeWaterButton.setOnClickListener {
-            /*parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, WaterChangeFragment()).addToBackStack("Home")
-                .commit()*/
+
+        }
+
+        binding.photoTextButton.setOnClickListener {
+            findNavController().navigate(HomeListFragmentDirections.goToPhoto())
+        }
+
+        binding.profileTextButton.setOnClickListener {
+            findNavController().navigate(HomeListFragmentDirections.goToProfile())
         }
     }
 

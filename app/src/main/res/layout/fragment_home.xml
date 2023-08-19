@@ -10,7 +10,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:focusable="true"
             android:clickable="true">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,11 +46,35 @@
                 android:id="@+id/measure_recycler_view"
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="@dimen/dp_0"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/photoTextButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/item_measurement"/>
+
+            <Button
+                android:id="@+id/photoTextButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:text="@string/pictures_menu_bottom"
+                app:icon="@drawable/ic_pictures_bottom"
+                app:layout_constraintTop_toBottomOf="@id/measure_recycler_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/profileTextButton"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/profileTextButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:text="@string/profile_menu_bottom"
+                app:icon="@drawable/ic_profile_bottom"
+                app:layout_constraintTop_toBottomOf="@id/measure_recycler_view"
+                app:layout_constraintStart_toEndOf="@id/photoTextButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
                 android:id="@+id/empty_RV_text_view"

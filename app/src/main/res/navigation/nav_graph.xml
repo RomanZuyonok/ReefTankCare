@@ -16,6 +16,12 @@
         <action
             android:id="@+id/add_new_measure"
             app:destination="@id/measurementFragment" />
+        <action
+            android:id="@+id/go_to_photo"
+            app:destination="@id/photoBaseFragment" />
+        <action
+            android:id="@+id/go_to_profile"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/measurementDetailsFragment"
@@ -37,6 +43,31 @@
         <action
             android:id="@+id/action_measurementFragment_to_homeListFragment"
             app:destination="@id/homeListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoBaseFragment"
+        android:name="com.reeftankcare.ui.photo_base.PhotoBaseFragment"
+        android:label="PhotoBaseFragment"
+        tools:layout="@layout/fragment_photo_base">
+        <action
+            android:id="@+id/ago_to_home"
+            app:destination="@id/homeListFragment" />
+        <action
+            android:id="@+id/go_to_profile"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.reeftankcare.ui.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/ago_to_home"
+            app:destination="@id/homeListFragment" />
+        <action
+            android:id="@+id/go_to_photo"
+            app:destination="@id/photoBaseFragment" />
     </fragment>
     <activity
         android:id="@+id/splashActivity"
