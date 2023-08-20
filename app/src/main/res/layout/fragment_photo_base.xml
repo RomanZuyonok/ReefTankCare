@@ -13,7 +13,7 @@
         android:clickable="true"
         android:focusable="true">
 
-        <androidx.recyclerview.widget.RecyclerView
+       <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photo_rv_grid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_50"
             android:text="@string/home_menu_bottom"
+            android:textColor="@color/black"
             app:icon ="@drawable/ic_home_bottom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/profileTextButton"
@@ -43,6 +44,7 @@
             android:layout_height="@dimen/dp_50"
             android:text="@string/profile_menu_bottom"
             app:icon="@drawable/ic_profile_bottom"
+            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/homeTextButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

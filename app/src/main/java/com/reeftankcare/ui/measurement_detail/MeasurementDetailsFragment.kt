@@ -35,7 +35,6 @@ class MeasurementDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         bindingOne = FragmentMeasureDetailsBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 

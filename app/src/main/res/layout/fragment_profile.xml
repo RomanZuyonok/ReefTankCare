@@ -62,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_50"
             android:text="@string/home_menu_bottom"
+            android:textColor="@color/black"
             app:icon ="@drawable/ic_home_bottom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/photoTextButton"
@@ -73,12 +74,11 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_50"
             android:text="@string/pictures_menu_bottom"
+            android:textColor="@color/black"
             app:icon="@drawable/ic_pictures_bottom"
             app:layout_constraintStart_toEndOf="@id/homeTextButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

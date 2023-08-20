@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +19,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_4"
-            android:layout_marginBottom="@dimen/dp_2"
             android:text="@string/measure"
             app:layout_constraintBottom_toTopOf="@+id/temprTextField"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +34,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/meas_temp"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/saltTextField"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +56,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/salf"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/found_text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +74,7 @@
             style="@style/TextStyle.H3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_4"
-            android:layout_marginBottom="@dimen/dp_4"
+
             android:gravity="center_horizontal"
             android:text="@string/foundat_element"
             app:layout_constraintBottom_toTopOf="@id/khTextField"
@@ -91,6 +92,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/meas_kh"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/caTextField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/found_text_view">
@@ -111,6 +113,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/meas_ca"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/mgTextField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/khTextField">
@@ -131,6 +134,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/meas_mg"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/algcntl_text_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/caTextField">
@@ -147,8 +151,6 @@
             style="@style/TextStyle.H3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_4"
-            android:layout_marginBottom="@dimen/dp_4"
             android:gravity="center_horizontal"
             android:text="@string/alg_ctrl"
             app:layout_constraintBottom_toTopOf="@id/no3TextField"
@@ -165,6 +167,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/meas_no3"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@id/po4TextField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/algcntl_text_view">
@@ -184,8 +187,10 @@
             android:layout_marginStart="@dimen/dp_90"
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
+            android:layout_marginBottom="@dimen/dp_20"
             android:hint="@string/meas_po4"
-            app:layout_constraintBottom_toTopOf="@id/button_save_measure"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/no3TextField">
 
@@ -196,21 +201,21 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button_save_measure"
-            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_4"
-            android:background="@drawable/shape_btn"
-            android:paddingStart="@dimen/dp_100"
-            android:paddingEnd="@dimen/dp_100"
-            android:text="@string/save_btn"
-            android:textAllCaps="false"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:alpha="0.6"
+            android:clickable="true"
+            android:contentDescription="@string/measure_btn"
+            app:backgroundTint="@color/sky_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/po4TextField" />
+            app:srcCompat="@drawable/ic_save_bottom"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -20,6 +20,7 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+
         setContentView(R.layout.activity_splash)
         lifecycleScope.launch(Dispatchers.Main) {
             delay(TIME_FINISH_SPLASH)
