@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 
-private const val BASE_URL = "https://www.flickr.com/"
+private const val BASE_URL = "https://api.flickr.com/"
 
 class PhotoRepository {
     private val flickrApi: FlickrApi
