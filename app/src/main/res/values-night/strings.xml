@@ -13,4 +13,10 @@
     <string name="pictures_menu_bottom">Pictures</string>
     <string name="profile_menu_bottom">Profile</string>
     <string name="profile_text">Profile</string>
+    <string name="title_tools">Title will be here....</string>
+    <string name="photo_tools">Photo will be here.....</string>
+    <string name="back_to_gallery">Back to gallery</string>
+    <string name="save_pic_btm">save this picture</string>
+    <string name="search">Search</string>
+    <string name="clear_search">Clear search</string>
 </resources>

@@ -90,6 +90,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
     // Coil
     implementation 'io.coil-kt:coil:2.0.0-rc02'
+    //datastore
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+    //work
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
 }
 kapt {

@@ -56,6 +56,9 @@
         <action
             android:id="@+id/go_to_profile"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/show_photo_detail"
+            app:destination="@id/photoDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -73,5 +76,17 @@
         android:id="@+id/splashActivity"
         android:name="com.reeftankcare.ui.SplashActivity"
         android:label="SplashActivity" />
+    <fragment
+        android:id="@+id/photoDetailFragment"
+        android:name="com.reeftankcare.ui.photo_detail.PhotoDetailFragment"
+        tools:layout="@layout/fragment_photo_details"
+        android:label="PhotoDetailFragment" >
+        <action
+            android:id="@+id/back_gallery"
+            app:destination="@id/photoBaseFragment" />
+        <argument
+            android:name="photoId"
+            app:argType="string" />
+    </fragment>
 </navigation>
 
