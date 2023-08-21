@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.work.OneTimeWorkRequestBuilder
@@ -21,48 +22,57 @@ class ChangeWaterFragment : Fragment() {
     private val binding
         get() = checkNotNull(_binding) {}
 
-    private var chosenYear = 0
-    private var chosenMonth = 0
-    private var chosenDay = 0
-    private var chosenHour = 0
-    private var chosenMin = 0
+    private var selectedYear = 0
+    private var selectedMonth = 0
+    private var selectedDay = 0
+    private var selectedHour = 0
+    private var selectedMin = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)}
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentChangeWaterBinding.inflate(inflater,container, false)
+        _binding = FragmentChangeWaterBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val descriptionText = binding.messegeEditText.text.toString()
-        val today = Calendar.getInstance()
+        var descriptionText = ""
+     //   val today = Calendar.getInstance()
 
-        binding.datePicker.init(
+       /* binding.datePicker.init(
             today.get(Calendar.YEAR), today.get(Calendar.MONTH),
-            today.get(Calendar.DAY_OF_MONTH)
-        )
-        { _, year, month, day ->
-            chosenYear = year
-            chosenMonth = month
-            chosenDay = day
+            today.get(Calendar.DAY_OF_MONTH)){}*/
+
+        binding.messegeEditText.doAfterTextChanged { textInput ->
+            descriptionText = textInput.toString()
         }
 
-         binding.timePicker.setOnTimeChangedListener { _, hour, minute ->
-            chosenHour = hour
-            chosenMin = minute
-        }
 
         binding.setBtn.setOnClickListener {
 
+            binding.datePicker.setOnDateChangedListener {
+                    _, year, month, day ->
+                selectedYear = year
+                selectedMonth = month
+                selectedDay = day
+
+            }
+
+            binding.timePicker.setOnTimeChangedListener { _, hour, minute ->
+                selectedHour = hour
+                selectedMin = minute
+            }
+
             val userSelectedDateTime = Calendar.getInstance()
-            userSelectedDateTime.set(chosenYear, chosenMonth, chosenDay, chosenHour, chosenMin)
+            userSelectedDateTime.set(selectedYear, selectedMonth, selectedDay, selectedHour, selectedMin)
 
 
             val todayDateTime = Calendar.getInstance()
@@ -81,6 +91,7 @@ class ChangeWaterFragment : Fragment() {
         }
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -91,7 +102,7 @@ class ChangeWaterFragment : Fragment() {
             .setInitialDelay(timeDelayInSeconds, TimeUnit.SECONDS)
             .setInputData(
                 workDataOf(
-                    "title" to "Reminder",
+                    "title" to "Water change",
                     "message" to message,
                 )
             )
