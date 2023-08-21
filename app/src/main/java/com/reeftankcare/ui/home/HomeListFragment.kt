@@ -11,9 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.reeftankcare.R
 import com.reeftankcare.databinding.FragmentHomeBinding
-import com.reeftankcare.ui.measurement.MeasurementFragment
 import kotlinx.coroutines.launch
 
 class HomeListFragment : Fragment() {
@@ -74,17 +72,19 @@ class HomeListFragment : Fragment() {
         }
 
         binding.newMeasurementButton.setOnClickListener {
-             findNavController().navigate(HomeListFragmentDirections.addNewMeasure())
+            findNavController().navigate(HomeListFragmentDirections.addNewMeasure())
         }
+
         binding.changeWaterButton.setOnClickListener {
+            findNavController().navigate(HomeListFragmentDirections.goToWaterChange())
 
         }
 
-        binding.photoTextButton.setOnClickListener {
+        binding.photoTextButton.setOnClickListener{
             findNavController().navigate(HomeListFragmentDirections.goToPhoto())
         }
 
-        binding.profileTextButton.setOnClickListener {
+        binding.profileTextButton.setOnClickListener{
             findNavController().navigate(HomeListFragmentDirections.goToProfile())
         }
     }
@@ -93,4 +93,5 @@ class HomeListFragment : Fragment() {
         super.onDestroyView()
         bindingOne = null
     }
+
 }
