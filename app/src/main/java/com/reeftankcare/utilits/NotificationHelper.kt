@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.reeftankcare.R
@@ -20,7 +19,7 @@ class NotificationHelper(val context: Context) {
         val channel = NotificationChannel(
             CHANNEL_ID,
             CHANNEL_ID,
-            NotificationManager.IMPORTANCE_HIGH
+            NotificationManager.IMPORTANCE_DEFAULT
         ).apply {
             description = "Reminder Channel Description"
         }
@@ -39,19 +38,17 @@ class NotificationHelper(val context: Context) {
         }
 
         val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
-
-        val icon = BitmapFactory.decodeResource(context.resources, R.drawable.ic_schedule_white)
+        val icon = context.vectorToBitmap(R.drawable.ic_change_water)
+        //val icon = BitmapFactory.decodeResource(context.resources, R.drawable.ic_schedule_white)
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_schedule_24dp)
             .setLargeIcon(icon)
             .setContentTitle(title)
             .setContentText(message)
-            .setStyle(
-                NotificationCompat.BigPictureStyle().bigPicture(icon).bigLargeIcon(null)
-            )
+            .setOngoing(true)
             .setContentIntent(pendingIntent)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
 

@@ -21,7 +21,7 @@
             android:layout_marginTop="@dimen/dp_4"
             android:layout_marginEnd="@dimen/dp_90"
             android:hint="@string/reminder_text"
-            app:errorEnabled="true"
+            android:inputType="textNoSuggestions"
             app:layout_constraintBottom_toTopOf="@+id/timePicker"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
