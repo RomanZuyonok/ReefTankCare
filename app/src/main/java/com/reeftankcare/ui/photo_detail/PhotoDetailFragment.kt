@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.reeftankcare.databinding.FragmentPhotoDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 
@@ -21,9 +22,7 @@ class PhotoDetailFragment : Fragment() {
     private val binding
         get() = checkNotNull(_binding) {}
 
-    private val photoDetailViewModel: PhotoDetailViewModel by viewModels {
-        PhotoDetailViewModelFactory(args.photoId)
-    }
+    private val photoDetailViewModel: PhotoDetailViewModel by viewModels()
 
     private val args: PhotoDetailFragmentArgs by navArgs()
 
@@ -39,13 +38,15 @@ class PhotoDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+         photoDetailViewModel.init(args.photoId)
+
         viewLifecycleOwner.lifecycleScope.launch {
 
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
             }
         }
         binding.backGalleryButton.setOnClickListener {
-            findNavController().navigate(PhotoDetailFragmentDirections.backGallery())
+            findNavController().popBackStack()
         }
 
         binding.savePhotoButton.setOnClickListener {

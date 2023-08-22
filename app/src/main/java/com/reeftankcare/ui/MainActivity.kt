@@ -8,8 +8,13 @@ import com.reeftankcare.repository.SharedPreferenceRepository
 import com.reeftankcare.ui.home.HomeListFragment
 import com.reeftankcare.ui.onboarding.OnBoardingFragment
 import com.reeftankcare.utilits.replaceFragment
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    @Inject
+    lateinit var sharedPreferenceRepository: SharedPreferenceRepository
 
     private var _binding: ActivityMainBinding? = null
     private val binding
@@ -20,11 +25,11 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (SharedPreferenceRepository.isFirstOpen()) {
-            SharedPreferenceRepository.setIsFirstOpen(false)
-            supportFragmentManager.replaceFragment(R.id.fragment_container, HomeListFragment())
-        } else {
+        if (sharedPreferenceRepository.isFirstOpen()) {
+            sharedPreferenceRepository.setIsFirstOpen(false)
             supportFragmentManager.replaceFragment(R.id.fragment_container, OnBoardingFragment())
+        } else {
+            supportFragmentManager.replaceFragment(R.id.fragment_container, HomeListFragment())
         }
     }
     override fun onDestroy() {

@@ -9,14 +9,17 @@ import com.reeftankcare.model.PhotoBaseUiState
 import com.reeftankcare.network.GalleryItem
 import com.reeftankcare.repository.PhotoRepository
 import com.reeftankcare.repository.PreferencesRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val TAG = "PhotoBaseViewModel"
-
-class PhotoBaseViewModel : ViewModel() {
-    private val photoResponse = PhotoRepository()
-    private val preferencesRepository = PreferencesRepository.get()
+@HiltViewModel
+class PhotoBaseViewModel @Inject constructor(
+    private val photoResponse: PhotoRepository,
+    private val preferencesRepository: PreferencesRepository
+) : ViewModel() {
 
     private val _uiState: MutableStateFlow<PhotoBaseUiState> =
         MutableStateFlow(PhotoBaseUiState())
@@ -25,7 +28,7 @@ class PhotoBaseViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            preferencesRepository.storedQuery.collectLatest { storedQuery ->
+            this@PhotoBaseViewModel.preferencesRepository.storedQuery.collectLatest { storedQuery ->
                 try {
                     val items = fetchGalleryItems(storedQuery)
                     _uiState.update { oldState ->  oldState.copy(

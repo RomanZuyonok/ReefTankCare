@@ -25,4 +25,9 @@
     <string name="notification_schedule_pattern">Hello</string>
     <string name="notification_schedule_error">Notificftion error</string>
     <string name="reminder_text">Reminder text</string>
+    <string name="skip_this">Skip</string>
+    <string name="firstname">FirstName:</string>
+    <string name="surname">Surname:</string>
+    <string name="type_aquarium">Type aquarium:</string>
+    <string name="aquarium_volume">Aquarium volume:</string>
 </resources>

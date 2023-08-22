@@ -32,7 +32,7 @@
             android:layout_height="@dimen/dp_50"
             android:text="@string/home_menu_bottom"
             android:textColor="@color/black"
-            app:icon ="@drawable/ic_home_bottom"
+            app:icon ="@drawable/ic_home_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/profileTextButton"
             app:layout_constraintBottom_toBottomOf="parent"/>

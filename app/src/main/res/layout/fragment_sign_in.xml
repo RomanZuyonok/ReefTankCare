@@ -45,7 +45,7 @@
             app:layout_constraintTop_toBottomOf="@id/sign_in_slogan_logo_text_view" />
 
         <TextView
-            android:id="@+id/sign_in_text_view"
+            android:id="@+id/profileTextView"
             style="@style/TextStyle.H2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_in_text_view">
+            app:layout_constraintTop_toBottomOf="@id/profileTextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signin_username_edit_text"
