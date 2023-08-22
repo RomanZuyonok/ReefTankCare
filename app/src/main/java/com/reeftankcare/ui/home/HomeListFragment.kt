@@ -12,9 +12,12 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reeftankcare.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeListFragment : Fragment() {
+@AndroidEntryPoint
+class HomeListFragment @Inject constructor(): Fragment() {
 
     private var bindingOne: FragmentHomeBinding? = null
     private val binding
@@ -34,25 +37,6 @@ class HomeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /* binding.swiperRefreshLayout.setColorSchemeResources(
-             android.R.color.holo_blue_bright,
-             android.R.color.holo_green_light,
-             android.R.color.holo_orange_light,
-             android.R.color.holo_red_light
-         )
-         binding.swiperRefreshLayout.setOnRefreshListener {
-             if (!binding.swiperRefreshLayout.isRefreshing) {
-                 homeListViewModel.updateData()
-                 binding.swiperRefreshLayout.isRefreshing = true
-             } else {
-                 Toast.makeText(
-                     requireContext(),
-                     "Please wait loading...",
-                     Toast.LENGTH_LONG
-                 ).show()
-                 binding.swiperRefreshLayout.isRefreshing = false
-             }
-         }*/
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

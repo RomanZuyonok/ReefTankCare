@@ -13,11 +13,14 @@ import com.reeftankcare.databinding.FragmentMeasurementBinding
 import com.reeftankcare.utilits.getString
 import java.util.*
 import androidx.core.widget.doAfterTextChanged
+import androidx.navigation.fragment.findNavController
 import com.reeftankcare.validation.ValidationResult
 import com.reeftankcare.validation.inputValidationDouble
-import com.reeftankcare.validation.inputValidationInteger
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class MeasurementFragment : Fragment() {
+@AndroidEntryPoint
+class MeasurementFragment @Inject constructor() : Fragment() {
 
     private lateinit var binding: FragmentMeasurementBinding
 
@@ -42,7 +45,7 @@ class MeasurementFragment : Fragment() {
                         "Measurement saved in the database ...",
                         Toast.LENGTH_LONG
                     ).show()
-                    parentFragmentManager.popBackStack()
+                    findNavController().popBackStack()
                 }
             }
             showError = {
@@ -60,6 +63,9 @@ class MeasurementFragment : Fragment() {
                         requireContext().getString(R.string.err_input)
                 }
             }
+            binding.saltEditText.doAfterTextChanged {
+                isValidate()
+            }
 
             binding.buttonSaveMeasure.setOnClickListener {
                 if (isValidate()){
@@ -67,19 +73,17 @@ class MeasurementFragment : Fragment() {
                 }
             }
 
-            binding.saltEditText.doAfterTextChanged {
-                isValidate()
-            }
+
         }
 }
     private fun isValidate(): Boolean {
-        val ValidationResultF = inputValidationDouble(binding.temprEditText.getString())
-        when (ValidationResultF) {
+        val validationResultF = inputValidationDouble(binding.temprEditText.getString())
+        when (validationResultF) {
             is ValidationResult.Invalid -> binding.temprTextField.error =
-                requireContext().getString(ValidationResultF.errorId)
+                requireContext().getString(validationResultF.errorId)
             else -> binding.temprTextField.error = null
         }
-        val isValid = ValidationResultF == ValidationResult.Valid
+        val isValid = validationResultF == ValidationResult.Valid
         binding.buttonSaveMeasure.isEnabled = isValid
         return isValid
     }

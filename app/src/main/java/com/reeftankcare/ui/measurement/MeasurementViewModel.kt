@@ -4,12 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.reeftankcare.database.Measurement
 import com.reeftankcare.repository.MeasurementRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MeasurementViewModel : ViewModel() {
-
-   private val measurementRepository = MeasurementRepository.get()
+@HiltViewModel
+class MeasurementViewModel @Inject constructor(private val measurementRepository : MeasurementRepository): ViewModel() {
 
     var measureSaved: (() -> Unit)? = null
 

@@ -34,19 +34,12 @@
         <argument
             android:name="measureID"
             app:argType="long" />
-        <action
-            android:id="@+id/back_to_home"
-            app:destination="@id/homeListFragment" />
     </fragment>
     <fragment
         android:id="@+id/measurementFragment"
         android:name="com.reeftankcare.ui.measurement.MeasurementFragment"
         android:label="MeasurementFragment"
-        tools:layout="@layout/fragment_measurement">
-        <action
-            android:id="@+id/action_measurementFragment_to_homeListFragment"
-            app:destination="@id/homeListFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_measurement"/>
 
     <fragment
         android:id="@+id/photoBaseFragment"
@@ -84,9 +77,6 @@
         android:name="com.reeftankcare.ui.photo_detail.PhotoDetailFragment"
         tools:layout="@layout/fragment_photo_details"
         android:label="PhotoDetailFragment" >
-        <action
-            android:id="@+id/back_gallery"
-            app:destination="@id/photoBaseFragment" />
         <argument
             android:name="photoId"
             app:argType="string" />
@@ -95,10 +85,6 @@
         android:id="@+id/changeWaterFragment"
         android:name="com.reeftankcare.ui.changewater.ChangeWaterFragment"
         android:label="ChangeWaterFragment"
-        tools:layout="@layout/fragment_change_water">
-        <action
-            android:id="@+id/show_home_fragment"
-            app:destination="@id/homeListFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_change_water"/>
 </navigation>
 

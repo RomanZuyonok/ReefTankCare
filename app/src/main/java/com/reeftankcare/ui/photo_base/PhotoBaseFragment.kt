@@ -13,8 +13,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.reeftankcare.R
 import com.reeftankcare.databinding.FragmentPhotoBaseBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-
+@AndroidEntryPoint
 class PhotoBaseFragment : Fragment() {
 
     private var _binding: FragmentPhotoBaseBinding? = null
@@ -67,6 +68,7 @@ class PhotoBaseFragment : Fragment() {
         _binding = null
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.fragment_photo_base, menu)
@@ -86,6 +88,7 @@ class PhotoBaseFragment : Fragment() {
         })
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_item_clear -> {
@@ -96,6 +99,7 @@ class PhotoBaseFragment : Fragment() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onDestroyOptionsMenu() {
         super.onDestroyOptionsMenu()
         searchView = null

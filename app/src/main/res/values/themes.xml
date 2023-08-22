@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ReefTankCare" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.ReefTankCare" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryVariant">@color/sky_blue</item>
+        <item name="android:textColorPrimary">@color/black</item>
         <item name="colorOnPrimary">@color/gray_dark</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -11,6 +12,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white</item>
+        <item name="android:actionBarItemBackground">@color/white</item>
+
         <!-- Customize your theme here. -->
     </style>
 </resources>

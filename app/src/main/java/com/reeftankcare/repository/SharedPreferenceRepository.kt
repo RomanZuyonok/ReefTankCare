@@ -3,32 +3,35 @@ package com.reeftankcare.repository
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
+import com.reeftankcare.utilits.Constants.IS_FIRST_OPEN
+import com.reeftankcare.utilits.Constants.SHARED_PREF_FILE
+import com.reeftankcare.utilits.Constants.USER_PREF_FILE
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-private const val SHARED_PREF_FILE = "sharedPrefFile"
-private const val USER_PREF_FILE = "userPrefFile"
-private const val IS_FIRST_OPEN = "isFirstOpen"
+@Singleton
+class SharedPreferenceRepository @Inject constructor(
+    @ApplicationContext context: Context
+) {
+    private val sharedPreferences: SharedPreferences
+    private val userPreferences: SharedPreferences
 
-object SharedPreferenceRepository {
-    private var sharedPreferences: SharedPreferences? = null
-    private var userPreferences: SharedPreferences? = null
-
-    fun init(context: Context) {
+    init {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_FILE, Context.MODE_PRIVATE)
         userPreferences = context.getSharedPreferences(USER_PREF_FILE, Context.MODE_PRIVATE)
     }
 
     fun setIsFirstOpen(isFirstOpen: Boolean) {
-        sharedPreferences?.edit {
-            putBoolean(IS_FIRST_OPEN, isFirstOpen)
-        }
+        sharedPreferences.edit { putBoolean(IS_FIRST_OPEN, isFirstOpen) }
     }
 
     fun isFirstOpen(): Boolean {
-        return sharedPreferences?.getBoolean(IS_FIRST_OPEN, true) ?: true
+        return sharedPreferences.getBoolean(IS_FIRST_OPEN, true)
     }
 
     fun clearUserPreferences() {
-        userPreferences?.edit {
+        userPreferences.edit {
             clear()
         }
     }

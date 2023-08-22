@@ -1,61 +1,19 @@
 package com.reeftankcare.repository
 
-import android.content.Context
-import androidx.room.Room
 import com.reeftankcare.database.Measurement
-import com.reeftankcare.database.MeasurementDataBase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.GlobalScope
+import com.reeftankcare.database.MeasurementDao
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
-import java.util.*
+import javax.inject.Inject
 
-private const val DATABASE_NAME = "measurement-database"
+class MeasurementRepository @Inject constructor(
+    private var measurementDao: MeasurementDao,
+) {
+    fun getMeasurement(): Flow<List<Measurement>> = measurementDao.getMeasurements()
 
-class MeasurementRepository private constructor(context: Context,
-private val coroutineScope: CoroutineScope = GlobalScope) {
+    suspend fun getMeasurement(id: Long): Measurement = measurementDao.getMeasurement(id)
 
-    private val database: MeasurementDataBase = Room
-        .databaseBuilder(
-            context.applicationContext,
-            MeasurementDataBase::class.java,
-            DATABASE_NAME
-        )
-        .build()
-
-    fun getMeasurement(): Flow<List<Measurement>> = database.measurementDao().getMeasurements()
-
-    suspend fun getMeasurement(id: Long): Measurement = database.measurementDao().getMeasurement(id)
-
-    suspend fun addMeasurement(measurement: Measurement) : Boolean{
-        database.measurementDao()
-            .addMeasurement(measurement)
+    suspend fun addMeasurement(measurement: Measurement): Boolean {
+        measurementDao.addMeasurement(measurement)
         return true
-    }
-
-    fun updateMeasurement(measurement: Measurement){
-        coroutineScope.launch {
-            database.measurementDao()
-                .updateMeasurement(measurement)  }
-    }
-
-    suspend fun deleteMeasurement(measurement: Measurement){
-        database.measurementDao().deleteMeasurement(measurement)
-    }
-
-    companion object {
-        private var INSTANCE: MeasurementRepository? = null
-
-        fun initialize(context: Context) {
-            if (INSTANCE == null) {
-                INSTANCE = MeasurementRepository(context)
-            }
-        }
-
-        @Throws(IllegalStateException::class)
-        fun get(): MeasurementRepository {
-            return INSTANCE
-                ?: throw IllegalStateException("Error: MeasurementRepository must be initialized!")
-        }
     }
 }

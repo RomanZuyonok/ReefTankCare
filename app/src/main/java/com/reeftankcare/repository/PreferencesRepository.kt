@@ -7,41 +7,36 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStoreFile
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PreferencesRepository private constructor(
-    private val dataStore: DataStore<Preferences>
+private val SEARCH_QUERY_KEY = stringPreferencesKey("search_query")
+
+@Singleton
+class PreferencesRepository @Inject constructor(
+    @ApplicationContext context: Context,
 ) {
-    val storedQuery: Flow<String> = dataStore.data.map {
-        it[SEARCH_QUERY_KEY] ?: ""
-    }.distinctUntilChanged()
 
-    suspend fun setStoredQuery(query: String){
-        dataStore.edit {
-            it[SEARCH_QUERY_KEY]  = query
+    val storedQuery: Flow<String>
+
+    private val dataStore: DataStore<Preferences>
+
+    init {
+        dataStore = PreferenceDataStoreFactory.create {
+            context.preferencesDataStoreFile("settings")
         }
+        storedQuery = dataStore.data.map {
+            it[SEARCH_QUERY_KEY] ?: ""
+        }.distinctUntilChanged()
     }
 
-
-    companion object {
-        private val SEARCH_QUERY_KEY = stringPreferencesKey("search_query")
-        private var INSTANCE: PreferencesRepository? = null
-        fun initialize(context: Context) {
-            if (INSTANCE == null) {
-                val dataStore = PreferenceDataStoreFactory.create {
-                    context.preferencesDataStoreFile("settings")
-                }
-
-                INSTANCE = PreferencesRepository(dataStore)
-            }
-        }
-
-        fun get(): PreferencesRepository {
-            return INSTANCE ?: throw IllegalStateException(
-                "PreferencesRepository must be initialized"
-            )
+    suspend fun setStoredQuery(query: String) {
+        dataStore.edit {
+            it[SEARCH_QUERY_KEY] = query
         }
     }
 }

@@ -14,18 +14,18 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.reeftankcare.database.Measurement
 import com.reeftankcare.databinding.FragmentMeasureDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
+@AndroidEntryPoint
 class MeasurementDetailsFragment : Fragment() {
 
     private var bindingOne: FragmentMeasureDetailsBinding? = null
     private val binding
         get() = checkNotNull(bindingOne) {}
 
-    private val measurementDetailsViewModel: MeasurementDetailsViewModel by viewModels {
-        MeasurementDetailViewModelFactory(args.measureID)
-    }
+    private val measurementDetailsViewModel: MeasurementDetailsViewModel by viewModels()
 
     private val args: MeasurementDetailsFragmentArgs by navArgs()
 
@@ -41,6 +41,8 @@ class MeasurementDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        measurementDetailsViewModel.init(args.measureID)
+
         viewLifecycleOwner.lifecycleScope.launch {
 
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -53,7 +55,7 @@ class MeasurementDetailsFragment : Fragment() {
         }
 
         binding.buttonBackHome.setOnClickListener{
-          findNavController().navigate(MeasurementDetailsFragmentDirections.backToHome())
+          findNavController().popBackStack()
         }
     }
 
