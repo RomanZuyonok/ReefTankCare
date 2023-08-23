@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.signin.SignInFragment">
+
+        <ImageView
+            android:id="@+id/sign_in_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_70"
+            android:layout_marginTop="@dimen/dp_36"
+            android:background="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_in_slogan_logo_text_view"
+            style="@style/TextStyle.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_48"
+            android:text="@string/slogan_logo"
+            app:layout_constraintEnd_toEndOf="@dimen/dp_0"
+            app:layout_constraintStart_toEndOf="@id/sign_in_image_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_in_slogan_text_view"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:text="@string/slogan"
+            app:layout_constraintEnd_toEndOf="@dimen/dp_0"
+            app:layout_constraintStart_toEndOf="@id/sign_in_image_view"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_slogan_logo_text_view" />
+
+        <TextView
+            android:id="@+id/profileTextView"
+            style="@style/TextStyle.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_130"
+            android:text="@string/sing_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_image_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:hint="@string/username"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/count_chars_small"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signin_username_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:hint="@string/pass"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signin_password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/forgot_pass_text_view"
+            android:text="@string/forgot_pass"
+            style="@style/TextStyle.P.small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passTextField"
+            android:layout_marginTop="@dimen/dp_0"
+            android:layout_marginStart="@dimen/dp_36"/>
+
+        <Button
+            android:id="@+id/button_sign_in"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_btn"
+            android:paddingStart="@dimen/dp_100"
+            android:paddingEnd="@dimen/dp_100"
+            android:text="@string/sign_btn"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forgot_pass_text_view"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.signup.SignUpFragment">
+
+        <ImageView
+            android:id="@+id/sign_up_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_70"
+            android:layout_marginTop="@dimen/dp_36"
+            android:background="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_up_slogan_logo_text_view"
+            style="@style/TextStyle.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_48"
+            android:text="@string/slogan_logo"
+            app:layout_constraintEnd_toEndOf="@dimen/dp_0"
+            app:layout_constraintStart_toEndOf="@id/sign_up_image_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_up_slogan_text_view"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:text="@string/slogan"
+            app:layout_constraintEnd_toEndOf="@dimen/dp_0"
+            app:layout_constraintStart_toEndOf="@id/sign_up_image_view"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_slogan_logo_text_view" />
+
+        <TextView
+            android:id="@+id/sign_up_text_view"
+            style="@style/TextStyle.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_48"
+            android:text="@string/create_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_image_view" />
+
+        <TextView
+            android:id="@+id/sign_up_info_text_view"
+            style="@style/TextStyle.P.small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_0"
+            android:text="@string/create_account_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_text_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tFieldEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:hint="@string/fremail"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/count_chars_small"
+            app:helperText="@string/helper_fremail"
+            app:helperTextEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_info_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/dp_300" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tFieldUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:hint="@string/fruser_name"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/count_chars_small"
+            app:helperText="@string/helper_user_name"
+            app:helperTextEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tFieldEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/dp_300" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tFieldPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:hint="@string/pass"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/count_chars_small"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tFieldUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pass_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/dp_300" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tFieldConfirmPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_36"
+            android:layout_marginEnd="@dimen/dp_36"
+            android:hint="@string/conf_pass"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/count_chars_small"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tFieldPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/conf_pass_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/dp_300" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_sign_up"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_btn"
+            android:paddingStart="@dimen/dp_100"
+            android:paddingEnd="@dimen/dp_100"
+            android:text="@string/create_account_btn"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tFieldConfirmPass" />
+
+        <TextView
+            android:id="@+id/have_acc_text_view"
+            android:text="@string/have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_sign_up"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

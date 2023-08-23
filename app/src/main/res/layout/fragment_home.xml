@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/newMeasurementButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:alpha="0.6"
+                android:clickable="true"
+                android:contentDescription="@string/measure_btn"
+                app:backgroundTint="@color/sky_blue"
+                app:layout_constraintBottom_toTopOf="@id/changeWaterButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_add_btn"
+                tools:ignore="ContentDescription" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/changeWaterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:alpha="0.6"
+                android:clickable="true"
+                android:contentDescription="@string/change_water_btm"
+                app:backgroundTint="@color/sky_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/measure_recycler_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_change_btn"
+                tools:ignore="ContentDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/measure_recycler_view"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_0"
+                app:layout_constraintBottom_toTopOf="@id/photoTextButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_measurement"/>
+
+            <Button
+                android:id="@+id/photoTextButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:text="@string/pictures_menu_bottom"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_pictures_bottom"
+                app:layout_constraintTop_toBottomOf="@id/measure_recycler_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/profileTextButton"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/profileTextButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_50"
+                android:text="@string/profile_menu_bottom"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_profile_bottom"
+                app:layout_constraintTop_toBottomOf="@id/measure_recycler_view"
+                app:layout_constraintStart_toEndOf="@id/photoTextButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/empty_RV_text_view"
+                style="@style/TextStyle.P"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_measurements"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.profile.ProfileFragment">
+
+        <ImageView
+            android:id="@+id/sign_in_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_70"
+            android:layout_marginTop="@dimen/dp_36"
+            android:background="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_in_slogan_logo_text_view"
+            style="@style/TextStyle.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_48"
+            android:text="@string/slogan_logo"
+            app:layout_constraintEnd_toEndOf="@dimen/dp_0"
+            app:layout_constraintStart_toEndOf="@id/sign_in_image_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_in_slogan_text_view"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_20"
+            android:text="@string/slogan"
+            app:layout_constraintEnd_toEndOf="@dimen/dp_0"
+            app:layout_constraintStart_toEndOf="@id/sign_in_image_view"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_slogan_logo_text_view" />
+
+        <TextView
+            android:id="@+id/profileTextView"
+            style="@style/TextStyle.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_50"
+            android:text="@string/profile_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_image_view" />
+
+        <Button
+            android:id="@+id/homeTextButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_50"
+            android:text="@string/home_menu_bottom"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_home_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/photoTextButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/photoTextButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_50"
+            android:text="@string/pictures_menu_bottom"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_pictures_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/homeTextButton" />
+
+        <ImageView
+            android:id="@+id/photoUserView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_44"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileTextView"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/firstNameTextView"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/firstname"
+            app:layout_constraintStart_toEndOf="@+id/photoUserView"
+            app:layout_constraintTop_toBottomOf="@+id/profileTextView" />
+
+        <TextView
+            android:id="@+id/surnameTextView"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_48"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/surname"
+            app:layout_constraintStart_toEndOf="@+id/photoUserView"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameTextView" />
+
+        <TextView
+            android:id="@+id/userNameTextView"
+            style="@style/TextStyle.P.small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toEndOf="@+id/firstNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/profileTextView"
+            tools:text="Roman" />
+
+        <TextView
+            android:id="@+id/userSurnameTextView"
+            style="@style/TextStyle.P.small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toEndOf="@+id/surnameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
+            tools:text="Zuyonak" />
+
+        <TextView
+            android:id="@+id/typeAquaTextView"
+            style="@style/TextStyle.P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_90"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/type_aquarium"
+            app:layout_constraintEnd_toStartOf="@+id/userTypeAquaTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photoUserView" />
+
+        <TextView
+            android:id="@+id/userTypeAquaTextView"
+            style="@style/TextStyle.P.small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toEndOf="@id/typeAquaTextView"
+            app:layout_constraintTop_toBottomOf="@+id/photoUserView"
+            tools:text="Mixed reef" />
+
+        <TextView
+            android:id="@+id/valueAquaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aquarium_volume"
+            style="@style/TextStyle.P"
+            android:layout_marginStart="@dimen/dp_90"
+            android:layout_marginTop="@dimen/dp_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/typeAquaTextView"
+            app:layout_constraintEnd_toStartOf="@id/userValueAquaTextView"/>
+
+        <TextView
+            android:id="@+id/userValueAquaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="240 L"
+            style="@style/TextStyle.P.small"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintStart_toEndOf="@+id/valueAquaTextView"
+            app:layout_constraintTop_toBottomOf="@+id/userTypeAquaTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

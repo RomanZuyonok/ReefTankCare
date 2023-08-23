@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="date_measurement">Date measurement</string>
+    <string name="measurement">Measurement</string>
+    <string name="count_dkh">dKh</string>
+    <string name="count_mgl">mg/L</string>
+    <string name="meas_p_po4">P-PO4</string>
+    <string name="meas_n_no3">N-NO3</string>
+    <string name="back_btn">Back</string>
+    <string name="skip_btn">skip</string>
+    <string name="reading_info">Reading info</string>
+    <string name="home_menu_bottom">Home</string>
+    <string name="pictures_menu_bottom">Pictures</string>
+    <string name="profile_menu_bottom">Profile</string>
+    <string name="profile_text">Profile</string>
+    <string name="title_tools">Title will be here....</string>
+    <string name="photo_tools">Photo will be here.....</string>
+    <string name="back_to_gallery">Back to gallery</string>
+    <string name="save_pic_btm">save this picture</string>
+    <string name="search">Search</string>
+    <string name="clear_search">Clear search</string>
+    <string name="notification_title">Chanch water</string>
+    <string name="notification_subtitle">It\'s time to change the water in the aquarium. The best volume to replace is 10% of the total volume.</string>
+    <string name="notification_schedule_title">Time water change</string>
+    <string name="notification_schedule_pattern">Hello</string>
+    <string name="notification_schedule_error">Notificftion error</string>
+    <string name="reminder_text">Reminder text</string>
+    <string name="skip_this">Skip</string>
+    <string name="firstname">FirstName:</string>
+    <string name="surname">Surname:</string>
+    <string name="type_aquarium">Type aquarium:</string>
+    <string name="aquarium_volume">Aquarium volume:</string>
+</resources>
